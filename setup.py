@@ -2,9 +2,9 @@ from setuptools import setup
 
 setup(
     name="zpm",
-    version="0.16",
+    version="0.18",
     author="Mike O'Malley",
-    author_email="spuiousdata@gmail.com",
+    author_email="spuriousdata@gmail.com",
     license="MIT",
     packages=['zpm'],
     install_requires=[
