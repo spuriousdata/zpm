@@ -1,0 +1,22 @@
+#!/bin/sh
+#
+# PROVIDE: zpm
+# REQUIRE: DAEMON
+# KEYWORD: shutdown
+
+. /etc/rc.subr
+
+name="zpm"
+rcvar=zpm_enable
+
+load_rc_config $name
+: ${zpm_enable:="NO"}
+: ${zpm_args:=""}
+
+zpm_command=/usr/local/bin/${name}
+pidfile="/var/run/${name}.pid"
+
+command=/usr/sbin/daemon
+command_args="-cfr -P ${pidfile} -u nobody ${zpm_command} exporter ${zpm_args}"
+
+run_rc_command "$1"
